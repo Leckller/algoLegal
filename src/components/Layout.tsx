@@ -11,7 +11,7 @@ function Layout () {
       <nav>
         <NavLink to='/'>Home</NavLink>
         <NavLink to='/About'>About</NavLink>
-        <NavLink to='/Coffe/:id'>Coffe</NavLink>
+        <NavLink to='/Apis'>Apis</NavLink>
       </nav>
     </Header>
     <Outlet/>

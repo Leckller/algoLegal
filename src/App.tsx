@@ -2,7 +2,8 @@ import { Route, Routes } from 'react-router-dom'
 import Layout from './components/Layout'
 import About from './components/About'
 import Home from './components/Home'
-import { createGlobalStyle } from 'styled-components'
+import { createGlobalStyle, ThemeProvider } from 'styled-components'
+import { randomColor } from './services/randomColor'
 
 const GlobalStyle = createGlobalStyle`
   *{
@@ -17,19 +18,24 @@ const GlobalStyle = createGlobalStyle`
     color: #eaeaea;
   }
 `
+const theme = {
+  randomC: () => randomColor(),
+}
 
 function App() {
 
   return (
     <>
+    <ThemeProvider theme= {theme}>
     <GlobalStyle/>
       <Routes>
         <Route path='/' element={<Layout/>}>
           <Route index element={<Home/>}/>
-          <Route path='/Coffe/:id'/>
+          <Route path='/Apis'/>
           <Route path='/About' element={<About/>}/>
         </Route>
       </Routes>
+    </ThemeProvider>
     </>
   )
 }

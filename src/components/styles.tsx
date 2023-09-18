@@ -4,15 +4,16 @@ export const Header = styled.header`
   display: flex;
   flex-direction: row;
   width: 100vw;
-  justify-content: center;
+  justify-content: space-around;
   height: 15vh;
   align-items: center;
+  text-align: center;
   img{
-    padding-right: 25vw;
     height: 12vh;
   }
   nav{
-    padding-left: 24vw;
+    display: flex;
+    flex-direction: column;
   }
    a{
       padding: 1px;
@@ -26,12 +27,13 @@ export const Header = styled.header`
 
   @media (max-width: 400px) {
     &{
-      margin-top: -5vh;
       flex-direction: column;
       align-items: center;
       padding-bottom: 7vh;
     }
     nav{
+      display: flex;
+      flex-direction: row;
       padding: 0;
     }
     a{
@@ -66,4 +68,13 @@ export const LayoutComp = styled.div`
   display: flex;
   flex-direction: column;
   height: 100vh;
+`
+
+export const HomeDiv = styled.div`
+  display: flex;
+  justify-content: center;
+  h2{
+    color: ${props => props.theme.randomC};
+    filter: brightness(200%)
+  }
 `
