@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react"
-import { HomeDiv } from "./styles"
+import { HomeDiv, InfoWeather } from "./styles"
 import { WeatherApi } from "../services/WeatherApi"
 import { apiWeathertype } from "../services/types"
 
@@ -12,15 +12,17 @@ function Home () {
       const data = await api.json()
       setApiResponse(data)
       setLocalizacao('Rio de Janeiro')
-      console.log(apiResponse)
     }
     uEffect()
-  }, [setApiResponse])
+  }, [localizacao])
   return(
     <>
       <HomeDiv>
         <h2>{`Tempo do ${localizacao}`}</h2>
-        <img src={apiResponse?.current.weather_icons[0]} alt="" />
+        <InfoWeather>
+        {apiResponse != null && <img src={apiResponse?.current.weather_icons[0]} alt="" />}
+        <h3>{apiResponse?.current.temperature}°C</h3>
+        </InfoWeather>
       </HomeDiv>
     </>
   )

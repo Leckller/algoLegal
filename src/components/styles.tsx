@@ -72,9 +72,35 @@ export const LayoutComp = styled.div`
 
 export const HomeDiv = styled.div`
   display: flex;
-  justify-content: center;
+  margin-top: 3vh;
+  width: 100vw;
+  height: 100%;
+  flex-direction: column;
+  text-align: center;
   h2{
     color: ${props => props.theme.randomC};
     filter: brightness(200%)
+  }
+  img{
+    width: 10%
+}
+`
+
+export const InfoWeather = styled.div`
+  padding-top: 5vh;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  img{
+    border-radius: 100px;
+    animation: rodando 1.5s linear infinite;
+  }
+  @keyframes rodando {
+    0%{
+      transform: rotate(180deg)
+    }
+    100%{
+      transform: rotate(0)
+    }
   }
 `
