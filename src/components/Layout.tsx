@@ -1,10 +1,10 @@
 import { NavLink, Outlet } from "react-router-dom";
-import { Header } from "./styles";
+import { Footer, Header, LayoutComp } from "./styles";
 import ruy from '../assets/ruy.png'
 
 function Layout () {
   return(
-    <>
+    <LayoutComp>
     <Header>
       <img src={ruy} alt="Funny img" />
       <h1>Muita Api!</h1>
@@ -15,10 +15,10 @@ function Layout () {
       </nav>
     </Header>
     <Outlet/>
-    <footer>
+    <Footer>
       <p>Feat by Ruy</p>     
-    </footer>
-    </>
+    </Footer>
+    </LayoutComp>
   )
 }
 
