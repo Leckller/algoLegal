@@ -1,15 +1,17 @@
 import { useEffect, useState } from "react"
 import { HomeDiv } from "./styles"
 import { WeatherApi } from "../services/WeatherApi"
+import { apiWeathertype } from "../services/types"
 
 function Home () {
   const [localizacao, setLocalizacao] = useState<string>('Rio de Janeiro')
-  const [apiResponse, setApiResponse] = useState()
+  const [apiResponse, setApiResponse] = useState<apiWeathertype>()
   useEffect(() => {
     const uEffect = async () => {
       const api = await WeatherApi('current', localizacao)
       const data = await api.json()
       setApiResponse(data)
+      setLocalizacao('Rio de Janeiro')
       console.log(apiResponse)
     }
     uEffect()
