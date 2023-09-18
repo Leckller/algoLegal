@@ -11,7 +11,7 @@ function Home () {
   }, [])
   return(
     <>
-      teste async
+      <h5>Insano</h5>
     </>
   )
 }

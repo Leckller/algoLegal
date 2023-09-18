@@ -28,7 +28,8 @@ export const Header = styled.header`
     &{
       margin-top: -5vh;
       flex-direction: column;
-      align-items: center
+      align-items: center;
+      padding-bottom: 7vh;
     }
     nav{
       padding: 0;
