@@ -77,7 +77,9 @@ export const HomeDiv = styled.div`
   height: 100%;
   flex-direction: column;
   text-align: center;
-  h2{
+`
+export const DivInfoWeather = styled.div`
+    h2{
     color: ${props => props.theme.randomC};
     filter: brightness(200%)
   }

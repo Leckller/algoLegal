@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import { WeatherApi } from "../services/WeatherApi";
 import { apiWeathertype } from "../services/types";
-import { InfoWeather } from "./styles";
+import { InfoWeather, DivInfoWeather } from "./styles";
 
 function WeatherComp () {
   const [apiResp, setApiResp] = useState<apiWeathertype>()
@@ -15,10 +15,13 @@ function WeatherComp () {
     funcEffect()
   }, [])
   return(
+    <DivInfoWeather>
+    <h2>{`Informações do tempo do ${apiResp?.location.name}`}</h2>
     <InfoWeather>
     <img src={apiResp?.current.condition.icon} alt="imagem do clima" />
     <h3>{apiResp?.current.temp_c}°C</h3>
     </InfoWeather>
+    </DivInfoWeather>
   )
 }
 
