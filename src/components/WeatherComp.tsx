@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import { WeatherApi } from "../services/WeatherApi";
 import { apiWeathertype } from "../services/types";
-import { InfoWeather, DivInfoWeather } from "./styles";
+import { FormWeather , InfoWeather, DivInfoWeather } from "./styles";
 
 function WeatherComp () {
   const [apiResp, setApiResp] = useState<apiWeathertype>()
@@ -10,32 +10,36 @@ function WeatherComp () {
   useEffect(() => {
     const funcEffect = async () => {
       const req = await WeatherApi(locate, 'current');
-      const resp = await req.json();
+      const resp = await req?.json()
+      if (resp.error) return alert('vish tem esse lugar não, doidao')
       setApiResp(resp)
     }
     const funcEffect2 = async () => {
       const req = await WeatherApi(locate, 'forecast');
-      const resp = await req.json();
+      const resp = await req?.json();
       console.log(resp)
     }
     funcEffect()
     funcEffect2()
   }, [locate])
-  function handleClickEnviar () {
+  function handleClickEnviar (e: React.MouseEvent<HTMLButtonElement, MouseEvent>) {
+    e.preventDefault()
     setLocate(searchInput)
   }
   return(
     <DivInfoWeather>
+      <FormWeather>
       <label htmlFor="searchLocate">
         Digite uma cidade: 
+      </label>
         <input 
          type="text"
          onChange={(e) => setSearchInput(e.target.value)}
          id="searchLocate"
          value={searchInput}
          placeholder="Ex: rio de janeiro" />
-        <button onClick={() => handleClickEnviar()}>Enviar</button>
-      </label>
+        <button onClick={(e) => handleClickEnviar(e)}>Enviar</button>
+      </FormWeather>
     <h2>{`Informações do tempo do ${apiResp?.location.name} - ${apiResp?.location.region}`}</h2>
     <InfoWeather textTemp={apiResp?.current.condition.text === 'Sol' ? 
     'animation: rodando 1.5s linear infinite' : ''}>

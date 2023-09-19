@@ -110,3 +110,13 @@ export const InfoWeather = styled.div<infoWeatherType>`
     }
   }
 `
+export const FormWeather = styled.form`
+  display: flex;
+  flex-direction: column;
+  align-items: center;  
+  input, button{
+    width: 20rem;
+    padding: .3vh;
+  }
+  padding: 0 1vh 1vh 1vh;
+`
