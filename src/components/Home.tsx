@@ -1,3 +1,4 @@
+import WeatherComp from "./WeatherComp"
 import { HomeDiv, InfoWeather } from "./styles"
 
 function Home () {
@@ -5,6 +6,7 @@ function Home () {
     <>
       <HomeDiv>
         <InfoWeather>
+          <WeatherComp />
         </InfoWeather>
       </HomeDiv>
     </>

@@ -81,19 +81,17 @@ export const HomeDiv = styled.div`
     color: ${props => props.theme.randomC};
     filter: brightness(200%)
   }
-  img{
-    width: 10%
-}
 `
 
 export const InfoWeather = styled.div`
+  transform: scale(120%);
+  align-items: center;
   padding-top: 5vh;
   display: flex;
   flex-direction: row;
   justify-content: space-around;
   img{
-    border-radius: 100px;
-    animation: rodando 1.5s linear infinite;
+    /* animation: rodando 1.5s linear infinite; */
   }
   @keyframes rodando {
     0%{

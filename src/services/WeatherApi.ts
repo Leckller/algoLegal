@@ -1,6 +1,6 @@
-export const WeatherApi = async (endP: string, loc: string) => {
-  const key = '40939d16a6d6f645fcbfb6f2aecf4b40'
-  const req = fetch(`http://api.weatherstack.com/${endP}?access_key=${key}& query=${loc}`)
+export const WeatherApi = async (cityURL: string, endP: string) => {
+  const key = 'b1b78a3d2bf549a682c21507231909'
+  const req = fetch(`https://api.weatherapi.com/v1/${endP}.json?lang=pt&key=${key}&q=${cityURL}`)
   const response = await req;
   return response
 }
