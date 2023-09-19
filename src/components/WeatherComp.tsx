@@ -1,12 +1,14 @@
 import { useEffect, useState } from "react";
 import { WeatherApi } from "../services/WeatherApi";
-import { apiWeathertype } from "../services/types";
-import { FormWeather , InfoWeather, DivInfoWeather } from "./styles";
+import { apiWeathertype, forecastWeather } from "../services/types";
+import { FormWeather , InfoWeather, DivInfoWeather, UlForecast } from "./styles";
+import Previsao from "./Previsao";
 
 function WeatherComp () {
   const [apiResp, setApiResp] = useState<apiWeathertype>()
   const [locate, setLocate] = useState('rio de janeiro')
   const [searchInput, setSearchInput] = useState('')
+  const [forecastApi, setForecastApi] = useState<forecastWeather>()
   useEffect(() => {
     const funcEffect = async () => {
       const req = await WeatherApi(locate, 'current');
@@ -17,7 +19,9 @@ function WeatherComp () {
     const funcEffect2 = async () => {
       const req = await WeatherApi(locate, 'forecast');
       const resp = await req?.json();
-      console.log(resp)
+      if (resp.error) return '';
+      console.log(resp.forecast)
+      setForecastApi(resp)
     }
     funcEffect()
     funcEffect2()
@@ -49,6 +53,15 @@ function WeatherComp () {
     <h4>{apiResp?.current.condition.text}</h4>
     <h4>{`Sensação térmica de ${apiResp?.current.feelslike_c}°C`}</h4>
     <h4>{`Quantidade de nuvens: ${apiResp?.current.cloud}`}</h4>
+    {/* <Previsao forecast={forecastApi}/> */}
+    { forecastApi?.forecast.forecastday.map((e) => (
+      <UlForecast key={e.date[0]}>
+        {e.hour.map((e2) => (
+          
+            <li>{`${e2.time.slice(10)} - ${e2.temp_c}°C`}</li>
+        ))}
+      </UlForecast>
+     ))}
     </DivInfoWeather>
   )
 }

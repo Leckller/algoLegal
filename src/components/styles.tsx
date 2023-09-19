@@ -79,6 +79,9 @@ export const HomeDiv = styled.div`
   text-align: center;
 `
 export const DivInfoWeather = styled.div`
+display: flex;
+flex-direction: column;
+align-items: center;
     h2{
     color: ${props => props.theme.randomC};
     filter: brightness(200%)
@@ -119,4 +122,15 @@ export const FormWeather = styled.form`
     padding: .3vh;
   }
   padding: 0 1vh 1vh 1vh;
+`
+
+export const UlForecast = styled.ul`
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  width: 80%;
+  li{
+    list-style: none; 
+    padding: 3.2vw;
+  }
 `
