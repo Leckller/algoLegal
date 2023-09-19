@@ -5,23 +5,38 @@ import { InfoWeather, DivInfoWeather } from "./styles";
 
 function WeatherComp () {
   const [apiResp, setApiResp] = useState<apiWeathertype>()
+  const [locate, setLocate] = useState('rio de janeiro')
+  const [searchInput, setSearchInput] = useState('')
   useEffect(() => {
     const funcEffect = async () => {
-      const req = await WeatherApi('rio de janeiro', 'current');
+      const req = await WeatherApi(locate, 'current');
       const resp = await req.json();
       setApiResp(resp)
     }
     const funcEffect2 = async () => {
-      const req = await WeatherApi('rio de janeiro', 'forecast');
+      const req = await WeatherApi(locate, 'forecast');
       const resp = await req.json();
       console.log(resp)
     }
     funcEffect()
     funcEffect2()
-  }, [])
+  }, [locate])
+  function handleClickEnviar () {
+    setLocate(searchInput)
+  }
   return(
     <DivInfoWeather>
-    <h2>{`Informações do tempo do ${apiResp?.location.name}`}</h2>
+      <label htmlFor="searchLocate">
+        Digite uma cidade: 
+        <input 
+         type="text"
+         onChange={(e) => setSearchInput(e.target.value)}
+         id="searchLocate"
+         value={searchInput}
+         placeholder="Ex: rio de janeiro" />
+        <button onClick={() => handleClickEnviar()}>Enviar</button>
+      </label>
+    <h2>{`Informações do tempo do ${apiResp?.location.name} - ${apiResp?.location.region}`}</h2>
     <InfoWeather textTemp={apiResp?.current.condition.text === 'Sol' ? 
     'animation: rodando 1.5s linear infinite' : ''}>
     <img src={apiResp?.current.condition.icon} alt="imagem do clima" />
