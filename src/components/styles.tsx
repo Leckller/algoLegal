@@ -87,8 +87,11 @@ export const DivInfoWeather = styled.div`
     padding: 1vh;
   }
 `
+type infoWeatherType = {
+  textTemp: string;
+}
 
-export const InfoWeather = styled.div`
+export const InfoWeather = styled.div<infoWeatherType>`
   transform: scale(130%);
   align-items: center;
   padding-top: 5vh;
@@ -96,7 +99,7 @@ export const InfoWeather = styled.div`
   flex-direction: row;
   justify-content: space-around;
   img{
-    /* animation: rodando 1.5s linear infinite; */
+    ${props => props.textTemp};
   }
   @keyframes rodando {
     0%{

@@ -9,15 +9,21 @@ function WeatherComp () {
     const funcEffect = async () => {
       const req = await WeatherApi('rio de janeiro', 'current');
       const resp = await req.json();
-      console.log(resp)
       setApiResp(resp)
     }
+    const funcEffect2 = async () => {
+      const req = await WeatherApi('rio de janeiro', 'forecast');
+      const resp = await req.json();
+      console.log(resp)
+    }
     funcEffect()
+    funcEffect2()
   }, [])
   return(
     <DivInfoWeather>
     <h2>{`Informações do tempo do ${apiResp?.location.name}`}</h2>
-    <InfoWeather>
+    <InfoWeather textTemp={apiResp?.current.condition.text === 'Sol' ? 
+    'animation: rodando 1.5s linear infinite' : ''}>
     <img src={apiResp?.current.condition.icon} alt="imagem do clima" />
     <h3>{`${apiResp?.current.temp_c}°C`}</h3>
     </InfoWeather>
