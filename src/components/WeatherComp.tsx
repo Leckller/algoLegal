@@ -19,8 +19,11 @@ function WeatherComp () {
     <h2>{`Informações do tempo do ${apiResp?.location.name}`}</h2>
     <InfoWeather>
     <img src={apiResp?.current.condition.icon} alt="imagem do clima" />
-    <h3>{apiResp?.current.temp_c}°C</h3>
+    <h3>{`${apiResp?.current.temp_c}°C`}</h3>
     </InfoWeather>
+    <h4>{apiResp?.current.condition.text}</h4>
+    <h4>{`Sensação térmica de ${apiResp?.current.feelslike_c}°C`}</h4>
+    <h4>{`Quantidade de nuvens: ${apiResp?.current.cloud}`}</h4>
     </DivInfoWeather>
   )
 }

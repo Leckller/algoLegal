@@ -83,10 +83,13 @@ export const DivInfoWeather = styled.div`
     color: ${props => props.theme.randomC};
     filter: brightness(200%)
   }
+  h4{
+    padding: 1vh;
+  }
 `
 
 export const InfoWeather = styled.div`
-  transform: scale(120%);
+  transform: scale(130%);
   align-items: center;
   padding-top: 5vh;
   display: flex;
