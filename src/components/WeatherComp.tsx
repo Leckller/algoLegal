@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import { WeatherApi } from "../services/WeatherApi";
 import { apiWeathertype, forecastWeather } from "../services/types";
 import { FormWeather , InfoWeather, DivInfoWeather, UlForecast } from "./styles";
-import Previsao from "./Previsao";
+// import Previsao from "./Previsao";
 
 function WeatherComp () {
   const [apiResp, setApiResp] = useState<apiWeathertype>()
