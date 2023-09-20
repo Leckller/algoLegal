@@ -134,3 +134,19 @@ export const UlForecast = styled.ul`
     padding: 3.2vw;
   }
 `
+
+export const OlApis = styled.ol`
+  width: 100vw;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 5vh;
+  text-align: center;
+  h3 {
+    margin-bottom: 2vh;
+  }
+  li{
+    display: flex;
+    flex-direction: column;
+  }
+`

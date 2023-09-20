@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import { WeatherApi } from "../services/WeatherApi";
 import { apiWeathertype, forecastWeather } from "../services/types";
-import { FormWeather , InfoWeather, DivInfoWeather, UlForecast } from "./styles";
+import { FormWeather , InfoWeather, DivInfoWeather, UlForecast, HomeDiv } from "./styles";
 // import Previsao from "./Previsao";
 
 function WeatherComp () {
@@ -31,6 +31,7 @@ function WeatherComp () {
     setLocate(searchInput)
   }
   return(
+    <HomeDiv>
     <DivInfoWeather>
       <FormWeather>
       <label htmlFor="searchLocate">
@@ -63,6 +64,7 @@ function WeatherComp () {
       </UlForecast>
      ))}
     </DivInfoWeather>
+    </HomeDiv>
   )
 }
 
