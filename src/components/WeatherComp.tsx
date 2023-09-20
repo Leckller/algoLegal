@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import { WeatherApi } from "../services/WeatherApi";
 import { apiWeathertype, forecastWeather } from "../services/types";
-import { FormWeather , InfoWeather, DivInfoWeather, UlForecast, HomeDiv } from "./styles";
+import { FormWeather , InfoWeather, DivInfoWeather, UlForecast, HomeDiv, LabelDigiteCidade } from "./styles";
 // import Previsao from "./Previsao";
 
 function WeatherComp () {
@@ -34,16 +34,16 @@ function WeatherComp () {
     <HomeDiv>
     <DivInfoWeather>
       <FormWeather>
-      <label htmlFor="searchLocate">
+      <LabelDigiteCidade htmlFor="searchLocate">
         Digite uma cidade: 
-      </label>
+      </LabelDigiteCidade>
         <input 
          type="text"
          onChange={(e) => setSearchInput(e.target.value)}
          id="searchLocate"
          value={searchInput}
          placeholder="Ex: rio de janeiro" />
-        <button onClick={(e) => handleClickEnviar(e)}>Enviar</button>
+        <button onClick={(e) => handleClickEnviar(e)}>Pesquisar</button>
       </FormWeather>
     <h2>{`Informações do tempo do ${apiResp?.location.name} - ${apiResp?.location.region}`}</h2>
     <InfoWeather textTemp={apiResp?.current.condition.text === 'Sol' ? 
