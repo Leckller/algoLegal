@@ -4,6 +4,8 @@ import About from './components/About'
 import Home from './components/Home'
 import { createGlobalStyle, ThemeProvider } from 'styled-components'
 import { randomColor } from './services/randomColor'
+import { useState } from 'react'
+import ApisRoute from './components/ApisRoute'
 
 const GlobalStyle = createGlobalStyle`
   *{
@@ -23,6 +25,7 @@ const theme = {
 }
 
 function App() {
+  const [choseApi, setChoseApi] = useState(0)
 
   return (
     <>
@@ -30,8 +33,8 @@ function App() {
     <GlobalStyle/>
       <Routes>
         <Route path='/' element={<Layout/>}>
-          <Route index element={<Home/>}/>
-          <Route path='/Apis'/>
+          <Route index element={<Home choseApi={choseApi} setChoseApi={setChoseApi}/>}/>
+          <Route path='/Apis' element={<ApisRoute setChoseApi={setChoseApi}/>}/>
           <Route path='/About' element={<About/>}/>
         </Route>
       </Routes>

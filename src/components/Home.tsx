@@ -1,12 +1,9 @@
 import WeatherComp from "./WeatherComp"
-import { HomeDiv } from "./styles"
 
-function Home () {
+function Home ({choseApi}: {choseApi: number, setChoseApi: (p: number) => void}) {
   return(
     <>
-      <HomeDiv>
-          <WeatherComp />
-      </HomeDiv>
+      {choseApi === 1 && <WeatherComp />}
     </>
   )
 }
