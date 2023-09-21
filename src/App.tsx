@@ -35,7 +35,7 @@ function App() {
         <Route path='/' element={<Layout/>}>
           <Route index element={<Home choseApi={choseApi} setChoseApi={setChoseApi}/>}/>
           <Route path='/Apis' element={<ApisRoute setChoseApi={setChoseApi}/>}/>
-          <Route path='/About' element={<About/>}/>
+          <Route path='/About' element={ <About/>}/>
         </Route>
       </Routes>
     </ThemeProvider>
