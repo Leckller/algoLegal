@@ -1,9 +1,10 @@
 import { useEffect, useState } from "react"
-import { ApiDog, ApiDuck, Apifox } from "../services/AnimaisApi"
+import { ApiDog, ApiFox } from "../services/AnimaisApi"
+import { AnimaisDiv, AnimaisSection } from "./styles";
 
 type allAnimals = {
   dog: string;
-  duck: string;
+  // duck: string;
   fox: string;
 }
 
@@ -12,20 +13,24 @@ function AnimaisComp() {
   useEffect(() => {
     const aF =async () => {
       const dog = await ApiDog();
-      const duck = await ApiDuck();
-      const fox = await Apifox();
-      const all = {dog, duck, fox}
+      // const duck = await ApiDuck();
+      const fox = await ApiFox();
+      const all = {dog, fox}
       setReturnApis(all)
-      console.log(returnApis)
     }
     aF()
   }, [])
   return (
-    <div>
-      <img src={returnApis?.dog} alt="dog" />
-      <img src={returnApis?.duck} alt="duck" />
-      <img src={returnApis?.fox} alt="fox" />
-    </div>
+    <AnimaisDiv>
+      <AnimaisSection>
+      <h2>Random dog</h2>
+      <img src={returnApis?.dog} />
+      </AnimaisSection>
+      <AnimaisSection>
+      <h2>Random Fox</h2>
+      <img src={returnApis?.fox} />
+      </AnimaisSection>
+    </AnimaisDiv>
   )
 }
 

@@ -168,7 +168,37 @@ export const OlApis = styled.ol`
   }
 `
 
-export const ButtonReset = styled.button`
-  margin: 5vh;
-  padding: 0 5vw;
+export const ButtonDivApis = styled.div`
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  width: 100vw;
+` 
+
+export const ButtonStyled = styled.button`
+  margin: 5vh 0;
+  width: 30vw;
+`
+
+export const AnimaisDiv = styled.div`
+  width: 100vw;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+`
+export const AnimaisSection = styled.section`
+  width: 50%;
+  height: 40vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-around;
+
+  h2{
+    text-align: center;
+  }
+  img{
+    width: 80%;
+    height: 80%;
+  }
 `

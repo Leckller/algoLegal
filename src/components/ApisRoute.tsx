@@ -1,5 +1,5 @@
 import { useNavigate } from "react-router-dom"
-import { ButtonReset, OlApis } from "./styles"
+import { ButtonDivApis, ButtonStyled, OlApis } from "./styles"
 
 function ApisRoute({setChoseApi}: {setChoseApi: (p: number) => void}) {
   const navigate = useNavigate();
@@ -10,7 +10,8 @@ function ApisRoute({setChoseApi}: {setChoseApi: (p: number) => void}) {
   // criando um vetor q armazene as informações para cada Api e
   // armazenando em um documento separado
   return (
-    <OlApis>
+    <>
+      <OlApis>
       <h3>Escolha uma Api, e ela aparecera na rota "Home"!</h3>
       <li>
       <label htmlFor="apiDoTempo">
@@ -19,12 +20,23 @@ function ApisRoute({setChoseApi}: {setChoseApi: (p: number) => void}) {
         <button onClick={() => handleOnClick(1)} id="apiDoTempo">
           chose!
         </button>
-        <button onClick={() => navigate('/')}>
-          Ir para Home
+      </li>
+      <li>
+      <label htmlFor="apiDoTempo">
+        Api de foto de animais
+      </label>
+        <button onClick={() => handleOnClick(2)} id="apiDoTempo">
+          chose!
         </button>
       </li>
-      <ButtonReset onClick={() => handleOnClick(0)}>Reset</ButtonReset>
+        <ButtonDivApis>
+        <ButtonStyled onClick={() => navigate('/')}>
+          Ir para Home
+        </ButtonStyled>
+      <ButtonStyled onClick={() => handleOnClick(0)}>Reset</ButtonStyled>
+        </ButtonDivApis>
     </OlApis>
+    </>
   )
 }
 
