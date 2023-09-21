@@ -7,7 +7,7 @@ function Layout () {
     <LayoutComp>
     <Header>
       <img src={ruy} alt="Funny img" />
-      <h1>Muita Api!</h1>
+      <h1>M.A.I</h1>
       <nav>
         <NavLink to='/'>Home</NavLink>
         <NavLink to='/About'>About</NavLink>

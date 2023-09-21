@@ -7,7 +7,9 @@ export const Header = styled.header`
   justify-content: space-around;
   height: 15vh;
   align-items: center;
-  text-align: center;
+  h1{
+    animation: Degrer 1.5s alternate;
+  }
   img{
     height: 12vh;
   }

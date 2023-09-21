@@ -19,6 +19,23 @@ const GlobalStyle = createGlobalStyle`
     background-color: #222;
     color: #eaeaea;
   }
+  @keyframes Degrer {
+    0% {
+      transform: scale(1) rotate(0)
+    }
+    25% {
+      transform: scale(1.2) rotate(20deg)
+    }
+    50% {
+      transform: scale(1.6) rotate(0)
+    } 
+    75% {
+      transform: scale(1.2) rotate(-20deg)
+    }
+    100% {
+      transform: scale(1) rotate(0)
+    }
+  }
 `
 const theme = {
   randomC: () => randomColor(),
